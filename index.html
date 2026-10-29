@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Premium dental care in Downtown Dubai, built around precise planning, natural results and a calmer visit.">
+  <meta name="theme-color" content="#161c1a">
+  <title>Nacre Dental — Downtown Dubai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" aria-label="Primary navigation">
+    <a class="wordmark" href="#home" aria-label="Nacre Dental home">
+      <span class="wordmark-pearl" aria-hidden="true"></span>
+      Nacre
+    </a>
+    <nav class="desktop-nav" aria-label="Main menu">
+      <a href="#services">Treatments</a>
+      <a href="#experience">Experience</a>
+      <a href="#approach">Approach</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="header-action" href="mailto:hello@nacredental.ae?subject=Consultation%20request">Book a consultation</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile menu" hidden>
+      <a href="#services">Treatments</a>
+      <a href="#experience">Experience</a>
+      <a href="#approach">Approach</a>
+      <a href="#visit">Visit</a>
+      <a href="mailto:hello@nacredental.ae?subject=Consultation%20request">Book a consultation</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <img class="hero-image" src="assets/images/hero-smile.webp" width="1536" height="1024" alt="Close portrait of a woman with a natural smile" fetchpriority="high">
+      <div class="hero-copy">
+        <h1 id="hero-title">Dentistry,<br>considered</h1>
+        <p>Premium dental care in Downtown Dubai, shaped around precise planning, natural results and a calmer visit.</p>
+        <a class="button button-accent" href="mailto:hello@nacredental.ae?subject=Consultation%20request">Book a consultation</a>
+      </div>
+      <div class="hero-location" aria-label="Clinic location">
+        <span>Downtown Dubai</span>
+        <span>Open today until 20:00</span>
+      </div>
+      <div class="pearl-seal" aria-hidden="true">
+        <span>Precision</span>
+      </div>
+    </section>
+
+    <section class="planner section-pad" id="consultation" aria-labelledby="planner-title">
+      <div class="section-intro" data-reveal>
+        <h2 id="planner-title">Plan your first visit</h2>
+        <p>Choose what brings you in. We’ll show you the right place to begin and how long to set aside.</p>
+      </div>
+
+      <div class="planner-track" aria-label="Consultation reasons">
+        <button class="planner-card is-active" type="button" data-plan="smile" aria-pressed="true">
+          <span>Smile design</span>
+          <small>Shape, shade and alignment</small>
+        </button>
+        <button class="planner-card" type="button" data-plan="health" aria-pressed="false">
+          <span>Dental health</span>
+          <small>Check-up, pain or prevention</small>
+        </button>
+        <button class="planner-card" type="button" data-plan="restore" aria-pressed="false">
+          <span>Missing teeth</span>
+          <small>Implants and restoration</small>
+        </button>
+        <button class="planner-card" type="button" data-plan="urgent" aria-pressed="false">
+          <span>Urgent care</span>
+          <small>Same-day assessment</small>
+        </button>
+      </div>
+
+      <div class="planner-result" aria-live="polite" data-reveal>
+        <div>
+          <h3 id="plan-name">Smile consultation</h3>
+          <p id="plan-copy">A dentist reviews your goals, bite and facial balance, then maps the options that can produce a natural result.</p>
+        </div>
+        <div class="plan-meta">
+          <span id="plan-time">45 minutes</span>
+          <a id="plan-link" href="mailto:hello@nacredental.ae?subject=Smile%20consultation">Request this visit</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="services section-pad" id="services" aria-labelledby="services-title">
+      <div class="services-media" data-reveal>
+        <img class="service-image is-active" data-service-image="cosmetic" src="assets/images/hero-smile.webp" width="1536" height="1024" alt="Natural smile after considered cosmetic care" loading="lazy">
+        <img class="service-image" data-service-image="align" src="assets/images/consultation.webp" width="1536" height="1152" alt="Dentist discussing a digital smile plan with a patient" loading="lazy">
+        <img class="service-image" data-service-image="implants" src="assets/images/digital-scan.webp" width="1144" height="1400" alt="Digital intraoral scan during a dental visit" loading="lazy">
+        <img class="service-image" data-service-image="restorative" src="assets/images/clinic-interior.webp" width="1678" height="935" alt="Private treatment room with Downtown Dubai view" loading="lazy">
+      </div>
+
+      <div class="services-content">
+        <div class="section-intro" data-reveal>
+          <h2 id="services-title">Care for every smile</h2>
+          <p>From preventive visits to a complete smile plan, each treatment begins with a clear diagnosis and a conversation.</p>
+        </div>
+        <div class="service-list">
+          <article class="service-row is-active" tabindex="0" data-service="cosmetic">
+            <div class="service-row-top"><h3>Cosmetic dentistry</h3><span>45 min</span></div>
+            <p>Whitening, bonding and veneers planned around the proportions of your own face.</p>
+          </article>
+          <article class="service-row" tabindex="0" data-service="align">
+            <div class="service-row-top"><h3>Invisalign</h3><span>45 min</span></div>
+            <p>Digital alignment planning with a clear view of the expected sequence before treatment begins.</p>
+          </article>
+          <article class="service-row" tabindex="0" data-service="implants">
+            <div class="service-row-top"><h3>Dental implants</h3><span>60 min</span></div>
+            <p>Restoration of a single tooth or a wider gap with careful three-dimensional planning.</p>
+          </article>
+          <article class="service-row" tabindex="0" data-service="restorative">
+            <div class="service-row-top"><h3>Restorative care</h3><span>45 min</span></div>
+            <p>Fillings, crowns and root canal care designed to protect what is healthy and rebuild what is not.</p>
+          </article>
+          <article class="service-row" tabindex="0" data-service="cosmetic">
+            <div class="service-row-top"><h3>Dental hygiene</h3><span>60 min</span></div>
+            <p>A thorough clean, gum assessment and a practical routine shaped around your dental health.</p>
+          </article>
+          <article class="service-row" tabindex="0" data-service="restorative">
+            <div class="service-row-top"><h3>Emergency care</h3><span>Same day</span></div>
+            <p>Prompt assessment for pain, swelling, trauma or a broken tooth, with the next step explained clearly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience section-pad" id="experience" aria-labelledby="experience-title">
+      <div class="experience-heading" data-reveal>
+        <h2 id="experience-title">Calm by design</h2>
+        <p>Your visit is structured to reduce uncertainty. You see what we see, understand the options and know what happens next.</p>
+      </div>
+      <div class="experience-tiles">
+        <article class="experience-step step-welcome" data-reveal>
+          <div class="step-image"><img src="assets/images/clinic-interior.webp" width="1678" height="935" alt="Warm private treatment room" loading="lazy"></div>
+          <h3>A private welcome</h3>
+          <p>Time to talk before treatment starts.</p>
+        </article>
+        <article class="experience-step step-scan" data-reveal>
+          <div class="step-image"><img src="assets/images/digital-scan.webp" width="1144" height="1400" alt="Comfortable digital dental scan" loading="lazy"></div>
+          <h3>A clearer view</h3>
+          <p>Digital scans replace guesswork with detail.</p>
+        </article>
+        <article class="experience-step step-plan" data-reveal>
+          <div class="step-image"><img src="assets/images/consultation.webp" width="1536" height="1152" alt="Dentist explaining a treatment plan" loading="lazy"></div>
+          <h3>A plan you understand</h3>
+          <p>Options, timing and fees are discussed before you decide.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="approach section-pad" id="approach" aria-labelledby="approach-title">
+      <div class="approach-panel">
+        <div class="approach-copy" data-reveal>
+          <h2 id="approach-title">Beyond the scan</h2>
+          <div class="approach-notes">
+            <div>
+              <h3>See more clearly</h3>
+              <p>Digital scans and careful photography make changes visible and let us plan with greater precision.</p>
+            </div>
+            <div>
+              <h3>Decide together</h3>
+              <p>Technology informs the conversation. Your dentist still weighs the biology, function and result with you.</p>
+            </div>
+          </div>
+          <a class="button button-accent" href="mailto:hello@nacredental.ae?subject=Consultation%20request">Meet your dentist</a>
+        </div>
+        <div class="approach-image" data-reveal>
+          <img src="assets/images/consultation.webp" width="1536" height="1152" alt="Patient and dentist reviewing a digital dental scan together" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <img class="visit-image" src="assets/images/clinic-interior.webp" width="1678" height="935" alt="Nacre Dental treatment room overlooking Downtown Dubai" loading="lazy">
+      <div class="visit-card" data-reveal>
+        <h2 id="visit-title">Your chair is ready</h2>
+        <p>Sheikh Mohammed bin Rashid Boulevard<br>Downtown Dubai, UAE</p>
+        <dl class="hours">
+          <div><dt>Monday–Saturday</dt><dd>08:00–20:00</dd></div>
+          <div><dt>Sunday</dt><dd>10:00–18:00</dd></div>
+        </dl>
+        <a class="phone-link" href="tel:+97145550188">+971 4 555 0188</a>
+        <a class="button button-dark" href="mailto:hello@nacredental.ae?subject=Consultation%20request">Book a consultation</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-image">
+      <img src="assets/images/hero-smile.webp" width="1536" height="1024" alt="Close crop of a natural smile" loading="lazy">
+    </div>
+    <div class="footer-content">
+      <h2>Nacre Dental</h2>
+      <nav aria-label="Footer menu">
+        <a href="#home">Home</a>
+        <a href="#services">Treatments</a>
+        <a href="#experience">Experience</a>
+        <a href="#approach">Approach</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <div class="footer-meta">
+        <div><a href="tel:+97145550188">+971 4 555 0188</a><br><a href="mailto:hello@nacredental.ae">hello@nacredental.ae</a></div>
+        <div>Downtown Dubai<br>United Arab Emirates</div>
+      </div>
+      <p class="legal">© 2026 Nacre Dental. Sample homepage concept.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/gsap.min.js"></script>
+  <script src="assets/js/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
