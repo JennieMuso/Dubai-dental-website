@@ -31,27 +31,31 @@ p { text-wrap: pretty; }
 .skip-link { position: fixed; z-index: 100; top: 0; left: 0; padding: .8rem 1rem; background: var(--lime); transform: translateY(-120%); }
 .skip-link:focus { transform: translateY(0); }
 
-.page-header { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 2.5rem; padding: 1.3rem var(--gutter); border-bottom: 1.5px solid rgba(103,41,20,.3); background: var(--cream); }
+.page-header { position: absolute; z-index: 20; top: 0; left: 0; width: 100%; display: grid; grid-template-columns: 1fr 1fr; align-items: start; padding: 1.8rem var(--gutter); color: var(--white); text-shadow: 0 1px 14px rgba(40,14,8,.35); }
+.page-header::before { content: ""; position: absolute; top: 2rem; left: 50%; width: 2.5rem; height: 2px; background: currentColor; box-shadow: 0 .75rem 0 currentColor; transform: translateX(-50%); }
 .page-logo { font-size: 2rem; font-weight: 500; letter-spacing: -.08em; }
-.page-nav { display: flex; gap: 1.7rem; align-items: center; font-size: .86rem; text-transform: uppercase; }
-.page-nav a { padding: .3rem 0; border-bottom: 1.5px solid transparent; }
-.page-nav a:hover, .page-nav a[aria-current="page"] { border-color: currentColor; }
+.page-nav { justify-self: end; display: flex; flex-direction: column; align-items: flex-end; gap: .1rem; font-size: .8125rem; line-height: 1.35; text-transform: uppercase; }
+.page-nav a { transition: color 180ms ease, transform 180ms ease; }
+.page-nav a:hover, .page-nav a[aria-current="page"] { color: var(--lime); transform: translateX(-.3rem); }
 .header-book, .button { display: inline-flex; min-height: 3.15rem; align-items: center; justify-content: center; padding: .75rem 1.3rem; border: 0; border-radius: 999px; background: var(--lime); color: var(--rust-dark); font-weight: 500; cursor: pointer; transition: transform 180ms ease; }
+.header-book { display: none; }
 .header-book:hover, .button:hover { transform: translateY(-3px); }
 .button.rust { background: var(--rust); color: var(--white); }
 .button.cream { background: var(--cream); color: var(--rust-dark); }
 .text-link { display: inline-flex; padding-bottom: .25rem; border-bottom: 1.5px solid currentColor; font-weight: 500; }
 .eyebrow { margin: 0 0 1.1rem; font-size: .8rem; font-weight: 500; letter-spacing: .13em; text-transform: uppercase; }
 
-.page-hero { min-height: 72svh; display: grid; grid-template-columns: minmax(0,1fr) minmax(24rem,.82fr); align-items: stretch; }
-.page-hero-copy { display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(6rem,10vw,10rem) var(--gutter) clamp(4rem,7vw,7rem); background: var(--rust); color: var(--white); }
-.page-hero-copy h1 { max-width: 10ch; margin-bottom: 2rem; font-size: clamp(4.2rem,8vw,9rem); }
-.page-hero-copy > p:not(.eyebrow) { max-width: 42rem; margin-bottom: 2.3rem; font-size: clamp(1.15rem,1.6vw,1.6rem); }
-.page-hero-media { min-height: 38rem; overflow: hidden; background: var(--lavender); }
+.page-hero { position: relative; min-height: 48rem; height: 100svh; overflow: hidden; background: var(--rust); }
+.page-hero-copy { position: absolute; z-index: 2; inset: 0; display: grid; grid-template-columns: minmax(0,1fr) minmax(18rem,24vw); grid-template-rows: auto auto; column-gap: clamp(3rem,8vw,9rem); align-content: end; padding: 0 var(--gutter) 7.5%; color: var(--white); text-shadow: 0 2px 24px rgba(40,14,8,.55); }
+.page-hero-copy .eyebrow { grid-column: 1; grid-row: 1; margin-bottom: 1rem; }
+.page-hero-copy h1 { grid-column: 1; grid-row: 2; align-self: end; max-width: 10ch; margin: 0; font-size: clamp(4rem,8.3vw,9.5rem); letter-spacing: -.075em; }
+.page-hero-copy > p:not(.eyebrow) { grid-column: 2; grid-row: 2; align-self: end; max-width: 24rem; margin: 0; font-size: 1.125rem; line-height: 1.3; }
+.page-hero-copy .hero-actions { display: none; }
+.page-hero-media { position: absolute; inset: 0; min-height: 0; overflow: hidden; background: var(--lavender); }
 .page-hero-media img { height: 100%; object-fit: cover; }
-.page-hero.lavender .page-hero-copy { background: var(--lavender); color: var(--rust-dark); }
-.page-hero.lime .page-hero-copy { background: var(--lime); color: var(--rust-dark); }
-.page-hero.lilac .page-hero-copy { background: var(--lilac); color: var(--rust-dark); }
+.page-hero.lavender .page-hero-copy,
+.page-hero.lime .page-hero-copy,
+.page-hero.lilac .page-hero-copy { background: transparent; color: var(--white); }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
 
 .answer-strip { display: grid; grid-template-columns: repeat(3,1fr); background: var(--cream); }
@@ -142,10 +146,9 @@ p { text-wrap: pretty; }
 .footer-legal { grid-column: 1 / -1; margin: 3rem 0 0; font-size: .8rem; }
 
 @media (max-width: 900px) {
-  .page-header { grid-template-columns: 1fr auto; }
-  .page-nav { grid-column: 1 / -1; order: 3; overflow-x: auto; padding-top: .7rem; }
-  .page-hero { grid-template-columns: 1fr; }
-  .page-hero-media { min-height: 55svh; }
+  .page-header { grid-template-columns: 1fr 1fr; background: transparent; }
+  .page-header::before { display: none; }
+  .page-hero-media { min-height: 0; }
   .answer-strip { grid-template-columns: 1fr; }
   .answer-card { border-right: 0; border-bottom: 1.5px solid rgba(103,41,20,.3); }
   .section-heading, .quick-answer, .faq-band, .contact-grid { grid-template-columns: 1fr; }
@@ -154,12 +157,14 @@ p { text-wrap: pretty; }
 }
 
 @media (max-width: 620px) {
-  .page-header { gap: 1rem; }
-  .page-nav { gap: 1rem; }
-  .header-book { min-height: 2.8rem; padding: .65rem .9rem; font-size: .82rem; }
-  .page-hero-copy { padding-top: 5rem; }
-  .page-hero-copy h1 { font-size: 15vw; }
-  .page-hero-media { min-height: 70vw; }
+  .page-header { padding-top: 1.2rem; }
+  .page-logo { font-size: 1.8rem; }
+  .page-hero { min-height: 44rem; }
+  .page-hero-copy { display: flex; flex-direction: column; justify-content: flex-end; padding: 8rem var(--gutter) 3rem; }
+  .page-hero-copy .eyebrow { margin-bottom: .8rem; }
+  .page-hero-copy h1 { max-width: 11ch; margin-bottom: 1.25rem; font-size: clamp(3.7rem,15vw,5.5rem); }
+  .page-hero-copy > p:not(.eyebrow) { max-width: 28rem; font-size: 1rem; }
+  .page-hero-media { min-height: 0; }
   .section-heading, .split { grid-template-columns: 1fr; gap: 2rem; }
   .section-heading h2, .split-copy h2, .faq-band h2, .quick-answer h2 { font-size: 14vw; }
   .split-media { min-height: 78vw; }
