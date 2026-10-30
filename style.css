@@ -340,8 +340,8 @@ p { text-wrap: pretty; }
   position: relative;
   overflow: hidden;
   padding: 8rem var(--gutter) 0;
-  background: #a7a8ec;
-  color: var(--white);
+  background: var(--cream);
+  color: var(--rust-dark);
 }
 
 .specialists::before {
@@ -352,7 +352,7 @@ p { text-wrap: pretty; }
   width: 110%;
   height: 18vw;
   border-radius: 0 0 50% 50%;
-  background: var(--cream);
+  display: none;
 }
 
 .specialists-heading {
@@ -366,7 +366,7 @@ p { text-wrap: pretty; }
 }
 
 .specialists h2 { margin: 0 0 1rem; font-size: clamp(4rem, 6.5vw, 7.5rem); }
-.specialists-heading p { max-width: 32rem; margin: 0; color: rgba(255,255,255,0.88); }
+.specialists-heading p { max-width: 32rem; margin: 0; color: var(--rust-dark); }
 
 .carousel-controls { display: flex; justify-content: flex-end; gap: 0.75rem; }
 .carousel-controls button {
@@ -399,7 +399,7 @@ p { text-wrap: pretty; }
   width: clamp(15rem, 24vw, 23rem);
   flex: 0 0 auto;
   scroll-snap-align: start;
-  color: var(--white);
+  color: var(--rust-dark);
   text-align: center;
 }
 .doctor-photo {
@@ -408,33 +408,38 @@ p { text-wrap: pretty; }
   width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
+  background-image: url("assets/images/clinic-interior.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
   transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .doctor-photo::before {
   content: "";
   position: absolute;
-  inset: 7% 7% -4%;
+  inset: 0 -5% -30%;
   border-radius: 50% 50% 46% 46%;
-  background-image: url("assets/images/specialists.webp");
+  background-image: var(--doctor-image);
   background-repeat: no-repeat;
-  background-size: 400% auto;
+  background-size: contain;
+  background-position: center bottom;
 }
-.doctor-one { background: #efb184; }
-.doctor-two { background: #dcc7f6; }
-.doctor-three { background: #f3d47d; }
-.doctor-four { background: #bdd2f4; }
-.doctor-one::before { background-position: 0% 25%; }
-.doctor-two::before { background-position: 33.33% 22%; }
-.doctor-three::before { background-position: 66.66% 24%; }
-.doctor-four::before { background-position: 100% 22%; }
+.doctor-one { background-position: 18% center; }
+.doctor-two { background-position: 42% center; }
+.doctor-three { background-position: 64% center; }
+.doctor-four { background-position: 84% center; }
+.doctor-one { --doctor-image: url("assets/images/doctor-layla.webp"); }
+.doctor-two { --doctor-image: url("assets/images/doctor-omar.webp"); }
+.doctor-three { --doctor-image: url("assets/images/doctor-maya.webp"); }
+.doctor-four { --doctor-image: url("assets/images/doctor-rashid.webp"); }
 .doctor-card:hover .doctor-photo, .doctor-card:focus-visible .doctor-photo { transform: translateY(-0.6rem) rotate(1deg); }
 .doctor-card h3 { margin: 1.3rem 0 0.3rem; font-size: 1.35rem; letter-spacing: -0.035em; }
-.doctor-card p { margin: 0; color: rgba(255,255,255,.82); font-size: 0.86rem; }
+.doctor-card p { margin: 0; color: var(--rust-dark); font-size: 0.86rem; }
 
 .consultation {
   display: grid;
   grid-template-columns: 1fr 0.9fr;
   align-items: center;
+  overflow: hidden;
   min-height: 90svh;
   padding: 7rem var(--gutter);
   background: var(--rust);
@@ -635,8 +640,9 @@ p { text-wrap: pretty; }
   .specialists .carousel-controls { justify-content: flex-start; margin-top: 1.5rem; }
   .doctor-card { width: calc(100vw - 2 * var(--gutter)); }
   .consultation { grid-template-columns: 1fr; min-height: auto; gap: 4rem; padding-top: 6rem; padding-bottom: 6rem; }
-  .consultation-copy h2 { font-size: clamp(3.7rem, 15vw, 5.5rem); }
-  .consultation-image { width: 90vw; justify-self: center; }
+  .consultation-copy { min-width: 0; }
+  .consultation-copy h2 { font-size: clamp(2.4rem, 12vw, 5.5rem); }
+  .consultation-image { width: min(90vw, 36rem); justify-self: center; }
   .audience { padding-top: 6rem; padding-bottom: 6rem; }
   .audience h2 { margin-bottom: 3rem; font-size: 14vw; }
   .audience-grid { grid-template-columns: 1fr; }

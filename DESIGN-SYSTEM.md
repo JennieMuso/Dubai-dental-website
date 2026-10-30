@@ -36,6 +36,9 @@ Nacre uses an editorial, optimistic approach to clinical care. Large display typ
 - Buttons: lime is primary, rust is secondary on light fields, cream is used on rust.
 - Service rows: oversized labels, thin rules, one image and a clear detail-page link.
 - Cards: large fields of colour with minimal borders; colour establishes grouping.
+- Testimonials: three-card editorial grids use white, gold and lilac fields. Seed names and review copy are stored as replaceable content for the client handoff.
+- Doctor imagery: transparent clinician cutouts are layered over the clinic interior for real photographic context. The same high-resolution portrait source is reused from homepage thumbnail to profile hero.
+- Doctor profiles: include care approach, professional background, credentials and doctor-specific stories. All current profile data is editable seed content for the client handoff.
 - FAQ: native `details` elements with large questions and plus-to-close motion.
 - Forms: visible labels, solid 1.5px outlines and plain-language helper copy.
 - Footer: four-column rust field with lime section labels.
