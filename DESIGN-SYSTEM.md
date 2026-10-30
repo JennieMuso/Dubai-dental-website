@@ -32,7 +32,7 @@ Nacre uses an editorial, optimistic approach to clinical care. Large display typ
 ## Components
 
 - Header: white wordmark at the upper left, a two-line menu mark centred above the image, and uppercase navigation stacked at the upper right. Hero navigation does not use a booking pill.
-- Hero: full-viewport, full-bleed photography without a colour overlay. The oversized title sits at the lower left and a short supporting sentence sits subtly at the lower right.
+- Hero: full-viewport, full-bleed photography darkened slightly at image level for contrast. The oversized title stays near two lines at the lower left and a short supporting sentence sits subtly at the lower right.
 - Buttons: lime is primary, rust is secondary on light fields, cream is used on rust.
 - Service rows: oversized labels, thin rules, one image and a clear detail-page link.
 - Cards: large fields of colour with minimal borders; colour establishes grouping.

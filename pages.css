@@ -48,11 +48,11 @@ p { text-wrap: pretty; }
 .page-hero { position: relative; min-height: 48rem; height: 100svh; overflow: hidden; background: var(--rust); }
 .page-hero-copy { position: absolute; z-index: 2; inset: 0; display: grid; grid-template-columns: minmax(0,1fr) minmax(18rem,24vw); grid-template-rows: auto auto; column-gap: clamp(3rem,8vw,9rem); align-content: end; padding: 0 var(--gutter) 7.5%; color: var(--white); text-shadow: 0 2px 24px rgba(40,14,8,.55); }
 .page-hero-copy .eyebrow { grid-column: 1; grid-row: 1; margin-bottom: 1rem; }
-.page-hero-copy h1 { grid-column: 1; grid-row: 2; align-self: end; max-width: 10ch; margin: 0; font-size: clamp(4rem,8.3vw,9.5rem); letter-spacing: -.075em; }
+.page-hero-copy h1 { grid-column: 1; grid-row: 2; align-self: end; max-width: 12ch; margin: 0; font-size: clamp(4rem,7.2vw,8.2rem); letter-spacing: -.075em; }
 .page-hero-copy > p:not(.eyebrow) { grid-column: 2; grid-row: 2; align-self: end; max-width: 24rem; margin: 0; font-size: 1.125rem; line-height: 1.3; }
 .page-hero-copy .hero-actions { display: none; }
 .page-hero-media { position: absolute; inset: 0; min-height: 0; overflow: hidden; background: var(--lavender); }
-.page-hero-media img { height: 100%; object-fit: cover; }
+.page-hero-media img { height: 100%; object-fit: cover; filter: brightness(.76) saturate(.94); }
 .page-hero.lavender .page-hero-copy,
 .page-hero.lime .page-hero-copy,
 .page-hero.lilac .page-hero-copy { background: transparent; color: var(--white); }

@@ -340,8 +340,8 @@ p { text-wrap: pretty; }
   position: relative;
   overflow: hidden;
   padding: 8rem var(--gutter) 0;
-  background: var(--lavender);
-  color: var(--rust-dark);
+  background: #a7a8ec;
+  color: var(--white);
 }
 
 .specialists::before {
@@ -365,8 +365,8 @@ p { text-wrap: pretty; }
   margin-bottom: 4rem;
 }
 
-.specialists h2 { margin: 0 0 1rem; font-size: clamp(4.2rem, 8.6vw, 10rem); }
-.specialists-heading p { max-width: 32rem; margin: 0; color: #571a0d; }
+.specialists h2 { margin: 0 0 1rem; font-size: clamp(4rem, 6.5vw, 7.5rem); }
+.specialists-heading p { max-width: 32rem; margin: 0; color: rgba(255,255,255,0.88); }
 
 .carousel-controls { display: flex; justify-content: flex-end; gap: 0.75rem; }
 .carousel-controls button {
@@ -380,7 +380,7 @@ p { text-wrap: pretty; }
   font-size: 1.4rem;
   transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
-.carousel-controls button:hover { background: var(--cream); color: var(--rust-dark); transform: scale(1.06); }
+.carousel-controls button:hover { background: var(--white); color: var(--rust-dark); transform: scale(1.06); }
 .carousel-controls button:active { transform: scale(0.94); }
 
 .carousel-viewport {
@@ -399,7 +399,7 @@ p { text-wrap: pretty; }
   width: clamp(15rem, 24vw, 23rem);
   flex: 0 0 auto;
   scroll-snap-align: start;
-  color: #571a0d;
+  color: var(--white);
   text-align: center;
 }
 .doctor-photo {
@@ -413,14 +413,14 @@ p { text-wrap: pretty; }
 .doctor-photo::before {
   content: "";
   position: absolute;
-  inset: 6% 6% 0;
+  inset: 7% 7% -4%;
   border-radius: 50% 50% 46% 46%;
   background-image: url("assets/images/specialists.webp");
   background-repeat: no-repeat;
   background-size: 400% auto;
 }
-.doctor-one { background: #9b4325; }
-.doctor-two { background: #e1c8f4; }
+.doctor-one { background: #efb184; }
+.doctor-two { background: #dcc7f6; }
 .doctor-three { background: #f3d47d; }
 .doctor-four { background: #bdd2f4; }
 .doctor-one::before { background-position: 0% 25%; }
@@ -428,8 +428,8 @@ p { text-wrap: pretty; }
 .doctor-three::before { background-position: 66.66% 24%; }
 .doctor-four::before { background-position: 100% 22%; }
 .doctor-card:hover .doctor-photo, .doctor-card:focus-visible .doctor-photo { transform: translateY(-0.6rem) rotate(1deg); }
-.doctor-card h3 { margin: 1.3rem 0 0.3rem; font-size: 1.45rem; letter-spacing: -0.035em; }
-.doctor-card p { margin: 0; font-size: 0.9rem; }
+.doctor-card h3 { margin: 1.3rem 0 0.3rem; font-size: 1.35rem; letter-spacing: -0.035em; }
+.doctor-card p { margin: 0; color: rgba(255,255,255,.82); font-size: 0.86rem; }
 
 .consultation {
   display: grid;
