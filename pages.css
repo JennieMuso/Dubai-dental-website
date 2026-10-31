@@ -32,7 +32,7 @@ p { text-wrap: pretty; }
 .skip-link:focus { transform: translateY(0); }
 
 .page-header { position: absolute; z-index: 20; top: 0; left: 0; width: 100%; display: grid; grid-template-columns: 1fr 1fr; align-items: start; padding: 1.8rem var(--gutter); color: var(--white); text-shadow: 0 1px 14px rgba(40,14,8,.35); }
-.page-header::before { content: ""; position: absolute; top: 2rem; left: 50%; width: 2.5rem; height: 2px; background: currentColor; box-shadow: 0 .75rem 0 currentColor; transform: translateX(-50%); }
+.page-header::before { display: none; }
 .page-logo { font-size: 2rem; font-weight: 500; letter-spacing: -.08em; }
 .page-nav { justify-self: end; display: flex; flex-direction: column; align-items: flex-end; gap: .1rem; font-size: .8125rem; line-height: 1.35; text-transform: uppercase; }
 .page-nav a { transition: color 180ms ease, transform 180ms ease; }
@@ -51,7 +51,7 @@ p { text-wrap: pretty; }
 .page-hero-copy h1 { grid-column: 1; grid-row: 2; align-self: end; max-width: 12ch; margin: 0; font-size: clamp(4rem,7.2vw,8.2rem); letter-spacing: -.075em; }
 .page-hero-copy > p:not(.eyebrow) { grid-column: 2; grid-row: 2; align-self: end; max-width: 24rem; margin: 0; font-size: 1.125rem; line-height: 1.3; }
 .page-hero-copy .hero-actions { display: none; }
-.page-hero-media { position: absolute; inset: 0; min-height: 0; overflow: hidden; background: var(--lavender); }
+.page-hero-media { position: absolute; inset: 0; min-height: 0; overflow: hidden; background: var(--cream); }
 .page-hero-media img { height: 100%; object-fit: cover; filter: brightness(.76) saturate(.94); }
 .page-hero.lavender .page-hero-copy,
 .page-hero.lime .page-hero-copy,
@@ -68,8 +68,10 @@ p { text-wrap: pretty; }
 .content-section { padding: clamp(6rem,10vw,11rem) var(--gutter); }
 .content-section.cream { background: var(--cream); }
 .content-section.rust { background: var(--rust); color: var(--white); }
-.content-section.lavender { background: var(--lavender); }
-.content-section.lilac { background: var(--lilac); }
+.content-section.lavender, .content-section.lilac { background: var(--rust); color: var(--white); }
+.content-section.lavender .button.rust, .content-section.lilac .button.rust { background: var(--lime); color: var(--ink); }
+.team-section { background: var(--white); color: var(--ink); }
+.about-hero .page-hero-media img { object-position: center 58%; }
 .content-section.lime { background: var(--lime); }
 .section-heading { display: grid; grid-template-columns: .8fr 1.2fr; gap: 4rem; margin-bottom: clamp(4rem,7vw,7rem); }
 .section-heading h2 { max-width: 9ch; margin: 0; font-size: clamp(3.8rem,7vw,8rem); }
@@ -98,6 +100,19 @@ p { text-wrap: pretty; }
 .service-card h2, .service-card h3 { max-width: 10ch; margin: 0 0 1rem; font-size: clamp(2.8rem,5vw,5.8rem); }
 .service-card p { max-width: 33rem; }
 .service-card .card-link { align-self: flex-start; padding-bottom: .2rem; border-bottom: 1.5px solid currentColor; }
+.service-card:has(.service-card-image) { position: relative; isolation: isolate; color: var(--white); background: var(--rust); }
+.service-card-image { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; transition: transform .65s ease; }
+.service-card:has(.service-card-image)::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(31,19,14,.5), rgba(31,19,14,.22) 45%, rgba(31,19,14,.78)); }
+.service-card:hover .service-card-image { transform: scale(1.06); }
+.about-clinic-section .split { align-items: stretch; }
+.about-clinic-section .split-media { min-height: clamp(38rem, 60vw, 62rem); }
+.about-clinic-section .split-media img { width: 100%; height: 100%; min-height: inherit; object-fit: cover; }
+.team-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.team-grid .service-card { position: relative; isolation: isolate; min-height: 34rem; color: var(--white); background: var(--rust) url('assets/images/clinic-interior.webp') center / cover; }
+.team-grid .service-card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(37,22,16,.08), rgba(37,22,16,.75)); }
+.team-card-image { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; transition: transform .65s ease; }
+.team-grid .service-card:hover .team-card-image { transform: scale(1.05); }
+.team-card-copy { margin-top: auto; }
 
 .steps { counter-reset: steps; }
 .step { display: grid; grid-template-columns: 5rem 1fr; gap: 2rem; padding: 2rem 0; border-top: 1.5px solid currentColor; }
@@ -125,7 +140,15 @@ p { text-wrap: pretty; }
 .service-testimonial-card cite { font-style: normal; }
 .service-testimonial-card b { font-weight: 400; letter-spacing: .08em; }
 
-.faq-band { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(3rem,8vw,9rem); padding: clamp(6rem,9vw,10rem) var(--gutter); background: var(--lilac); }
+.faq-band { display: grid; grid-template-columns: .7fr 1.3fr; gap: clamp(3rem,8vw,9rem); padding: clamp(6rem,9vw,10rem) var(--gutter); background: var(--cream); }
+.legal-header { position: relative; color: var(--ink); text-shadow: none; }
+.legal-main { max-width: 70rem; margin: 0 auto; padding: clamp(5rem,8vw,9rem) var(--gutter); }
+.legal-main .eyebrow { margin-bottom: 1.5rem; }
+.legal-main h1 { max-width: 12ch; margin-bottom: 2rem; font-size: clamp(3.8rem,8vw,8rem); }
+.legal-main .legal-lead { max-width: 47rem; font-size: clamp(1.3rem,2vw,1.7rem); line-height: 1.35; }
+.legal-main section { max-width: 47rem; padding: 2rem 0; border-top: 1px solid rgba(103,41,20,.35); }
+.legal-main h2 { margin-bottom: 1rem; font-size: clamp(1.7rem,3vw,2.5rem); }
+.legal-main p, .legal-main li { line-height: 1.65; }
 .faq-band h2 { position: sticky; top: 2rem; max-width: 8ch; margin: 0; align-self: start; font-size: clamp(3.8rem,7vw,8rem); }
 .faq-list { border-bottom: 1.5px solid currentColor; }
 .faq-list details { border-top: 1.5px solid currentColor; }
@@ -143,7 +166,11 @@ p { text-wrap: pretty; }
 .field { display: flex; flex-direction: column; gap: .45rem; }
 .field.full { grid-column: 1 / -1; }
 .field label { font-size: .83rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; }
-.field input, .field select, .field textarea { width: 100%; min-height: 3.4rem; padding: .85rem 1rem; border: 1.5px solid currentColor; border-radius: .8rem; background: rgba(255,253,248,.55); color: var(--ink); }
+.field input, .field select, .field textarea { width: 100%; min-height: 3.4rem; padding: .85rem 1rem; border: 1.5px solid var(--ink); border-radius: .8rem; background: var(--white); color: var(--ink); }
+.field select { appearance: none; padding-right: 3.5rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='10' viewBox='0 0 16 10'%3E%3Cpath d='m2 2 6 6 6-6' fill='none' stroke='%23672914' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1.1rem center; background-size: 1rem auto; }
+.phone-input { display: flex; min-width: 0; gap: .5rem; }
+.phone-input .country-code { flex: 0 0 8.75rem; width: 8.75rem; padding-left: .65rem; padding-right: 1.6rem; background-position: right .45rem center; background-size: .7rem auto; }
+.phone-input input { min-width: 0; flex: 1; }
 .field textarea { min-height: 9rem; resize: vertical; }
 .form-note { grid-column: 1 / -1; margin: .2rem 0 0; font-size: .82rem; }
 .form-grid .button { grid-column: 1 / -1; justify-self: start; margin-top: .7rem; }
@@ -158,6 +185,7 @@ p { text-wrap: pretty; }
 .footer-column strong { margin-bottom: 1rem; color: var(--lime); font-weight: 500; }
 .footer-column a:hover { text-decoration: underline; }
 .footer-legal { grid-column: 1 / -1; margin: 3rem 0 0; font-size: .8rem; }
+.footer-legal a { text-decoration: underline; text-underline-offset: .2rem; }
 
 @media (max-width: 900px) {
   .page-header { grid-template-columns: 1fr 1fr; background: transparent; }
@@ -169,6 +197,7 @@ p { text-wrap: pretty; }
   .service-testimonials-heading { grid-template-columns: 1fr; }
   .service-testimonial-grid { grid-template-columns: 1fr 1fr; }
   .service-testimonial-card:last-child { grid-column: 1 / -1; }
+  .team-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .faq-band h2 { position: static; }
   .page-footer { grid-template-columns: 1fr 1fr; }
 }
@@ -188,11 +217,14 @@ p { text-wrap: pretty; }
   .feature-list > div { grid-template-columns: 1fr; gap: .5rem; }
   .service-grid { grid-template-columns: 1fr; }
   .service-card { min-height: 25rem; }
+  .team-grid { grid-template-columns: 1fr; }
+  .about-clinic-section .split-media { min-height: 90vw; }
   .step { grid-template-columns: 3.5rem 1fr; gap: 1rem; }
   .service-testimonials-heading h2 { font-size: 14vw; }
   .service-testimonial-grid { grid-template-columns: 1fr; }
   .service-testimonial-card:last-child { grid-column: auto; }
   .form-grid { grid-template-columns: 1fr; }
+  .phone-input .country-code { flex-basis: 8rem; width: 8rem; }
   .field.full, .form-grid .button, .form-note, .form-status { grid-column: 1; }
   .cta-band { align-items: flex-start; flex-direction: column; }
   .cta-band h2 { font-size: 15vw; }

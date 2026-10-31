@@ -118,7 +118,7 @@ if (window.gsap && window.ScrollTrigger && !reduceMotion) {
     scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
   });
 
-  gsap.to(".marquee-track", {
+  if (document.querySelector(".marquee-track")) gsap.to(".marquee-track", {
     xPercent: -50,
     duration: 22,
     repeat: -1,
