@@ -1,21 +1,3 @@
-const menuToggle = document.querySelector(".menu-toggle");
-const mobileMenu = document.querySelector(".mobile-menu");
-
-menuToggle.addEventListener("click", () => {
-  const open = menuToggle.getAttribute("aria-expanded") === "true";
-  menuToggle.setAttribute("aria-expanded", String(!open));
-  menuToggle.textContent = open ? "Menu" : "Close";
-  mobileMenu.hidden = open;
-});
-
-mobileMenu.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.textContent = "Menu";
-    mobileMenu.hidden = true;
-  });
-});
-
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const serviceItems = [...document.querySelectorAll(".service-accordion-item")];
