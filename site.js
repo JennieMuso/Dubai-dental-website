@@ -3,6 +3,20 @@
   const desktopNav = header?.querySelector('.desktop-nav, .page-nav, .doctor-nav');
 
   if (header && desktopNav) {
+    const hero = document.querySelector('.hero, .page-hero, .doctor-hero');
+    let scrollFrame;
+    const updateHeaderSurface = () => {
+      scrollFrame = null;
+      const heroBottom = hero ? hero.getBoundingClientRect().bottom : 0;
+      header.classList.toggle('is-past-hero', heroBottom <= header.offsetHeight + 24);
+    };
+    const requestHeaderUpdate = () => {
+      if (!scrollFrame) scrollFrame = requestAnimationFrame(updateHeaderSurface);
+    };
+    updateHeaderSurface();
+    window.addEventListener('scroll', requestHeaderUpdate, { passive: true });
+    window.addEventListener('resize', requestHeaderUpdate, { passive: true });
+
     let toggle = header.querySelector('.menu-toggle');
     let menu = header.querySelector('.mobile-menu');
 

@@ -80,9 +80,8 @@
 .alternate-home .audience-heading h2 { max-width: 11ch; margin: 0; text-align: left; }
 .alternate-home .audience-heading > p:last-child { margin: 0 0 .35rem; }
 .alternate-home .audience-grid { align-items: stretch; justify-content: space-between; gap: clamp(1rem, 2.2vw, 2.25rem); max-width: none; }
-.alternate-home .audience-card { display: flex; flex-direction: column; padding: 0; overflow: hidden; border-radius: var(--radius); background: var(--cream); text-align: left; }
-.alternate-home .audience-card:nth-child(2) { background: #f1d2bd; }
-.alternate-home .audience-card:nth-child(3) { background: #e6c7af; }
+.alternate-home .audience-card { display: flex; flex-direction: column; padding: 0; overflow: hidden; border-radius: var(--radius); background: var(--white); text-align: left; }
+.alternate-home .audience-card:nth-child(2), .alternate-home .audience-card:nth-child(3) { background: var(--white); }
 .alternate-home .audience-image { height: clamp(15rem, 25vw, 25rem); border-radius: 0; }
 .alternate-home .audience-card-copy { display: flex; flex: 1; flex-direction: column; padding: clamp(1.5rem, 2.5vw, 2.5rem); }
 .alternate-home .audience-card-copy > span { margin-bottom: 2rem; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; }

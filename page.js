@@ -6,7 +6,8 @@ document.querySelectorAll("[data-mail-form]").forEach((form) => {
     const countryCode = form.querySelector('[data-phone-country]');
     if (phoneInput && countryCode) {
       const localNumber = phoneInput.value.trim();
-      if (localNumber) data.set("Phone", `${countryCode.value} ${localNumber}`);
+      const dialCode = countryCode.value.match(/\+\d+/)?.[0] || countryCode.value.trim();
+      if (localNumber) data.set("Phone", `${dialCode} ${localNumber}`);
       else data.delete("Phone");
     }
     const lines = [];
@@ -23,10 +24,17 @@ document.querySelectorAll("[data-mail-form]").forEach((form) => {
 
 document.querySelectorAll('[data-phone-country]').forEach((countryCode) => {
   const phoneInput = countryCode.closest('.phone-input').querySelector('input[type="tel"]');
-  countryCode.addEventListener('change', () => {
-    const selected = countryCode.selectedOptions[0];
-    phoneInput.placeholder = countryCode.value === '+971' ? '50 123 4567' : 'Phone number';
+  countryCode.addEventListener('input', () => {
+    phoneInput.placeholder = countryCode.value.includes('+971') ? '50 123 4567' : 'Phone number';
   });
+});
+
+document.querySelectorAll('[data-date-input]').forEach((input) => {
+  const control = input.closest('.date-control');
+  const update = () => control?.classList.toggle('has-value', Boolean(input.value));
+  input.addEventListener('input', update);
+  input.addEventListener('change', update);
+  update();
 });
 
 const requestedService = new URLSearchParams(window.location.search).get("service");

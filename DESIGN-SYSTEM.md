@@ -17,26 +17,21 @@ Nacre uses an editorial, optimistic approach to clinical care. Large display typ
 
 | Token | Value | Use |
 | --- | --- | --- |
-| Cream | `#f5efdd` | Main page field and calm content sections |
-| Rust | `#9b4325` | Primary brand field and conversion sections |
-| Dark rust | `#6f2b18` | Text on bright backgrounds |
-| Lime | `#e7f24b` | Calls to action, seals and highlights |
-| Lavender | `#a99aec` | Specialists, editorial feature sections |
-| Lilac | `#e1c8f4` | FAQ and softer supporting content |
-| Peach | `#efc4a4` | Portrait and audience accents |
-| Gold | `#f3d47d` | Service-card accent |
-| Blue | `#bdd2f4` | Specialist and service accent |
-| Ink | `#672914` | Default text and rules |
-| White | `#fffdf8` | Text on rust and clean cards |
+| Cream | `#fff6ec` | Main page field and calm content sections |
+| Burgundy | `#6c151e` | Primary brand field and conversion sections |
+| Dark burgundy | `#4b0e15` | Default text and rules on light surfaces |
+| Light cream | `#f5dabf` | Calls to action, navigation hover and highlights |
+| Warm brown | `#dfb991` | Testimonial card surface |
+| White | `#fffaf4` | Clean audience cards and text on burgundy |
 
 ## Components
 
-- Header: white wordmark at the upper left, a two-line menu mark centred above the image, and uppercase navigation stacked at the upper right. Hero navigation does not use a booking pill.
+- Header: centred floating pill with a frosted cream hero state and a solid cream state after scrolling past the hero. On tablet and mobile it becomes a two-line menu control and full-viewport menu.
 - Hero: full-viewport, full-bleed photography darkened slightly at image level for contrast. The oversized title stays near two lines at the lower left and a short supporting sentence sits subtly at the lower right.
-- Buttons: lime is primary, rust is secondary on light fields, cream is used on rust.
+- Buttons: light cream is primary, burgundy is secondary on light fields, and every action has hover, pressed and keyboard-focus states.
 - Service rows: oversized labels, thin rules, one image and a clear detail-page link.
 - Cards: large fields of colour with minimal borders; colour establishes grouping.
-- Testimonials: three-card editorial grids use white, gold and lilac fields. Seed names and review copy are stored as replaceable content for the client handoff.
+- Testimonials: three-card editorial grids use the warm-brown surface for separation from cream sections. Seed names and review copy are stored as replaceable content for the client handoff.
 - Doctor imagery: transparent clinician cutouts are layered over the clinic interior for real photographic context. The same high-resolution portrait source is reused from homepage thumbnail to profile hero.
 - Doctor profiles: include care approach, professional background, credentials and doctor-specific stories. All current profile data is editable seed content for the client handoff.
 - FAQ: native `details` elements with large questions and plus-to-close motion.
