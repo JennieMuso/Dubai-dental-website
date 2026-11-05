@@ -3,6 +3,13 @@
   const desktopNav = header?.querySelector('.desktop-nav, .page-nav, .doctor-nav');
 
   if (header && desktopNav) {
+    if (!desktopNav.querySelector('.nav-book')) {
+      const book = document.createElement('a');
+      book.className = 'nav-book';
+      book.href = 'booking.html';
+      book.textContent = 'Book an appointment';
+      desktopNav.append(book);
+    }
     const hero = document.querySelector('.hero, .page-hero, .doctor-hero');
     let scrollFrame;
     const updateHeaderSurface = () => {
@@ -32,22 +39,16 @@
       menu = document.createElement('nav');
       menu.className = 'mobile-menu';
       menu.setAttribute('aria-label', 'Mobile menu');
-      menu.innerHTML = desktopNav.innerHTML;
       header.append(menu);
     }
+    menu.innerHTML = desktopNav.innerHTML;
 
     if (!menu.id) menu.id = 'mobile-menu';
     toggle.setAttribute('aria-controls', menu.id);
     toggle.setAttribute('aria-label', 'Open menu');
     toggle.textContent = '';
 
-    if (!menu.querySelector('a[href^="booking.html"]')) {
-      const bookingLink = document.createElement('a');
-      bookingLink.href = 'booking.html';
-      bookingLink.textContent = 'Book an appointment';
-      bookingLink.className = 'mobile-menu-book';
-      menu.append(bookingLink);
-    }
+    menu.querySelector('.nav-book')?.classList.add('mobile-menu-book');
 
     menu.hidden = true;
     let closeTimer;

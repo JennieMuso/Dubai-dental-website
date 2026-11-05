@@ -3,16 +3,71 @@
   const regionNames = typeof Intl.DisplayNames === 'function' ? new Intl.DisplayNames(['en'], { type: 'region' }) : null;
   const flag = (iso) => iso.replace(/./g, (letter) => String.fromCodePoint(127397 + letter.charCodeAt()));
 
-  document.querySelectorAll('[data-country-code-list]').forEach((list) => {
-    const fragment = document.createDocumentFragment();
-    countries.forEach(({ n, i, c }) => {
-      const option = document.createElement('option');
-      const name = regionNames?.of(i) || n;
-      option.value = c + ' — ' + name;
-      option.label = flag(i) + ' ' + name + ' (' + c + ')';
-      fragment.append(option);
+  document.querySelectorAll('[data-phone-country]').forEach((oldInput) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'country-picker';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'country-code';
+    button.setAttribute('aria-label', 'Country calling code, United Arab Emirates +971');
+    button.setAttribute('aria-expanded', 'false');
+    const value = document.createElement('input');
+    value.type = 'hidden';
+    value.dataset.phoneCountry = '';
+    value.value = '+971';
+    const popup = document.createElement('div');
+    popup.className = 'country-popup';
+    popup.hidden = true;
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.className = 'country-search';
+    search.placeholder = 'Search country or code';
+    search.setAttribute('aria-label', 'Search country or calling code');
+    const results = document.createElement('div');
+    results.className = 'country-results';
+    const setCountry = (country, focus = true) => {
+      const name = regionNames?.of(country.i) || country.n;
+      button.textContent = flag(country.i) + ' ' + country.c;
+      button.setAttribute('aria-label', 'Country calling code, ' + name + ' ' + country.c);
+      value.value = country.c;
+      value.dispatchEvent(new Event('change', { bubbles: true }));
+      popup.hidden = true;
+      button.setAttribute('aria-expanded', 'false');
+      if (focus) button.focus();
+    };
+    const render = () => {
+      const term = search.value.trim().toLocaleLowerCase();
+      const matches = countries.filter(({ n, i, c }) => (n + ' ' + (regionNames?.of(i) || '') + ' ' + c).toLocaleLowerCase().includes(term));
+      results.replaceChildren(...matches.map((country) => {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'country-option';
+        item.textContent = flag(country.i) + ' ' + (regionNames?.of(country.i) || country.n) + ' ' + country.c;
+        item.addEventListener('click', () => setCountry(country));
+        return item;
+      }));
+      if (!matches.length) results.textContent = 'No matching country';
+    };
+    button.addEventListener('click', () => {
+      popup.hidden = !popup.hidden;
+      button.setAttribute('aria-expanded', String(!popup.hidden));
+      if (!popup.hidden) { search.value = ''; render(); search.focus(); }
     });
-    list.replaceChildren(fragment);
+    search.addEventListener('input', render);
+    search.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowDown') { event.preventDefault(); results.querySelector('button')?.focus(); }
+    });
+    popup.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') { event.preventDefault(); popup.hidden = true; button.setAttribute('aria-expanded', 'false'); button.focus(); }
+    });
+    document.addEventListener('pointerdown', (event) => {
+      if (!wrap.contains(event.target)) { popup.hidden = true; button.setAttribute('aria-expanded', 'false'); }
+    });
+    popup.append(search, results);
+    wrap.append(button, value, popup);
+    oldInput.replaceWith(wrap);
+    document.querySelector('[data-country-code-list]')?.remove();
+    setCountry(countries.find(({ i }) => i === 'AE'), false);
   });
 })();
 

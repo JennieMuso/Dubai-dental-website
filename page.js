@@ -24,8 +24,8 @@ document.querySelectorAll("[data-mail-form]").forEach((form) => {
 
 document.querySelectorAll('[data-phone-country]').forEach((countryCode) => {
   const phoneInput = countryCode.closest('.phone-input').querySelector('input[type="tel"]');
-  countryCode.addEventListener('input', () => {
-    phoneInput.placeholder = countryCode.value.includes('+971') ? '50 123 4567' : 'Phone number';
+  countryCode.addEventListener('change', () => {
+    phoneInput.placeholder = countryCode.value === '+971' ? '50 123 4567' : 'Phone number';
   });
 });
 
